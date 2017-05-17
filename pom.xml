@@ -76,6 +76,13 @@
 			<version>1.2.14</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/com.sun.faces/jsf-api -->
+		<dependency>
+			<groupId>com.sun.faces</groupId>
+			<artifactId>jsf-api</artifactId>
+			<version>2.2.14</version>
+		</dependency>
+
 		<!--  JUNIT DEPENDENCY FOR TESTING -->
 		 <dependency>
 				 <groupId>junit</groupId>
