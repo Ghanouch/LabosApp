@@ -39,6 +39,15 @@
 			<artifactId>primefaces</artifactId>
 			<version>6.1</version>
 		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.primefaces/showcase -->
+		<dependency>
+			<groupId>org.primefaces</groupId>
+			<artifactId>showcase</artifactId>
+			<version>6.1</version>
+		</dependency>
+
+
 		<!-- https://mvnrepository.com/artifact/org.ow2.util.log/log-api -->
 		<dependency>
 			<groupId>org.ow2.util.log</groupId>
