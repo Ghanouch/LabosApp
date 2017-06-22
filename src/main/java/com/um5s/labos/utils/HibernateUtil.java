@@ -1,44 +1,38 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package com.um5s.labos.utils;
 
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.service.ServiceRegistry;
 
+/**
+ * Hibernate Utility class with a convenient method to get Session Factory object.
+ *
+ * @author l.IsSaM.l
+ */
 public class HibernateUtil {
 
-	private static SessionFactory sessionFactory = buildSessionFactory();
-	private static ServiceRegistry serviceRegistry;
-	private static Session session = null;
-
-	private static SessionFactory buildSessionFactory() {
-		try {
-			Configuration configuration = new Configuration().configure("config/hibernate.cfg.xml");
-			
-			return configuration.buildSessionFactory();
-		} catch (Throwable ex) {
-			System.err.println("Configuration Problem : " + ex);
-			throw new ExceptionInInitializerError(ex);
-		}
-	}
-	
-	// Renvoie une session Hibernate
-	public static SessionFactory getSessionFactory() {
-		return sessionFactory;
-	}
-	
-	public static Session openSession() {
-		return  sessionFactory.openSession();
-	}
-	
-	public Session getCurrentSession() {
-		return (Session) sessionFactory.getCurrentSession();
-	}
-
-	public static void shutdown() {
-		// Close caches and connection pools
-		if(sessionFactory != null) sessionFactory.close();
-		sessionFactory = null;
-	}
-
+    private static final SessionFactory sessionFactory;
+    
+    static {
+        try {
+            // Create the SessionFactory from standard (hibernate.cfg.xml) 
+            // config file.
+           Configuration configuration = new Configuration()
+					.configure("config/hibernate.cfg.xml");
+			sessionFactory =  configuration.buildSessionFactory();
+        } catch (Throwable ex) {
+            // Log the exception. 
+            System.err.println("Initial SessionFactory creation failed." + ex);
+            ex.printStackTrace();
+            throw new ExceptionInInitializerError(ex);
+        }
+    }
+    
+    public static SessionFactory getSessionFactory() {
+        return sessionFactory;
+    }
 }
