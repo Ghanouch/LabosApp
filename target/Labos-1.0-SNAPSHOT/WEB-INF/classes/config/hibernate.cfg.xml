@@ -1,20 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
-                                         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
  <session-factory>
-  <property name="hbm2ddl.auto">update</property>
-  <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-  <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/ProjetManager</property>
+
+  <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+  <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+  <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/labos?useSSL=false&amp;useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC</property>
   <property name="hibernate.connection.username">root</property>
-  <property name="hibernate.connection.password"></property>
-  <property name="connection.pool_size">1</property>
-  <property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
-  <property name="show_sql">true</property>
-  <property name="hbm2ddl.auto">create</property>
-  <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+  <property name="hibernate.hbm2ddl.auto">create</property>
+  <property name="hibernate.show_sql">true</property>
+
+  <mapping class="com.um5s.labos.DAO.beans.Profil.AdministrateurLabo" />
+  <mapping class="com.um5s.labos.DAO.beans.Profil.ChefEquipe" />
+  <mapping class="com.um5s.labos.DAO.beans.Profil.Membre" />
+  <mapping class="com.um5s.labos.DAO.beans.Profil.SuperAdmin" />
 
 
-  
+  <mapping class="com.um5s.labos.DAO.beans.Carriere.Publication" />
+  <mapping class="com.um5s.labos.DAO.beans.Carriere.Experience" />
+  <mapping class="com.um5s.labos.DAO.beans.Carriere.Certification" />
+  <mapping class="com.um5s.labos.DAO.beans.Carriere.MatiereEnseigne" />
+  <mapping class="com.um5s.labos.DAO.beans.Carriere.Projet" />
+  <mapping class="com.um5s.labos.DAO.beans.Carriere.Divers" />
+  <mapping class="com.um5s.labos.DAO.beans.Carriere.Competence" />
+  <mapping class="com.um5s.labos.DAO.beans.Carriere.UserComptence" />
+
+
+  <mapping class="com.um5s.labos.DAO.beans.Travail.CentreRecherche" />
+  <mapping class="com.um5s.labos.DAO.beans.Travail.DomaineRecherche" />
+  <mapping class="com.um5s.labos.DAO.beans.Travail.Equipe" />
+  <mapping class="com.um5s.labos.DAO.beans.Travail.Laboratoire" />
+
+
+
+
  </session-factory>
 </hibernate-configuration>

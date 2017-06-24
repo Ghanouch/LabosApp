@@ -83,17 +83,29 @@
                     <!-- /.row -->
                 </section>
 
-                <section class="content">
-                    <!-- Small boxes (Stat box) -->
-                    <div class="row">
 
-                        <!-- ./col -->
+
+                <section class="content">
+
+                    <div class="form-group">
+                        <h:outputLabel for="nom">Nom de labo</h:outputLabel>
+                            <h:inputText type="text" class="form-control" id="nom" />
                     </div>
-                    <!-- /.row -->
+                    <div class="form-group">
+                        <h:outputLabel for="adresse">Adresse</h:outputLabel>
+                            <h:inputText type="text" class="form-control" id="adresse" />
+                    </div>
+                    <div class="form-group">
+                        <h:outputLabel for="desc">Description</h:outputLabel>
+                        <h:inputText type="text" class="form-control" id="desc" />
+                    </div>
                 </section>
+
+
 
             </div>
         </div>
+
     </h:body>
 
     <ui:include src="footer.xhtml"></ui:include>
