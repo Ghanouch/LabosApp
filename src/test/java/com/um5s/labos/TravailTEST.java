@@ -19,10 +19,7 @@ public class TravailTEST {
     
     public static void main(String[] args) 
     {
-        
             centre_Recherche();
-        
-
 
     }
     
