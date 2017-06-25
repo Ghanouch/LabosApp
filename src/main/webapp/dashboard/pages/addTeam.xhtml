@@ -4,8 +4,7 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:p="http://primefaces.org/ui"
-      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+      xmlns:p="http://primefaces.org/ui" xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 
 
     <ui:include src="head.xhtml"></ui:include>
@@ -82,50 +81,58 @@
                 <!-- ./col -->
             </div>
                     <!-- /.row -->
-                    <div class="bg-black"><center><h2>Ajouter un laboratoire</h2></center></div>
+
+                    <div class="bg-black"><center><h2>Ajouter une equipe</h2></center></div>
                     <div class="bg-gray-light">
-                    <section class="content">
-                        <h:form class="form-horizontal">
-                            <div class="form-group">
-                                <h:outputLabel class="control-label col-sm-1" for="nom">Nom</h:outputLabel>
-                                <div class="col-sm-10">
-                                    <h:inputText type="text" class="form-control" id="nom" a:placeholder="Enter le nom de laboratoire"/>
+                        <section class="content">
+                            <h:form class="form-horizontal">
+                                <div class="form-group">
+                                    <h:outputLabel class="control-label col-sm-1" for="nom">Nom</h:outputLabel>
+                                    <div class="col-sm-10">
+                                        <h:inputText type="text" class="form-control" id="nom" a:placeholder="Enter le nom de l'equipe"/>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <h:outputLabel class="control-label col-sm-1" for="adresse">Adresse </h:outputLabel>
-                                <div class="col-sm-10">
-                                    <h:inputText type="password" class="form-control" id="adresse" a:placeholder="Enter Adresse de laboratoire"/>
+                                <div class="form-group">
+                                    <h:outputLabel class="control-label col-sm-1" for="desc">Description </h:outputLabel>
+                                    <div class="col-sm-10">
+                                        <h:inputText type="txt" class="form-control" id="desc" a:placeholder="Enter la description de l'equipe"/>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <h:outputLabel class="control-label col-sm-1" for="desc">Description </h:outputLabel>
-                                <div class="col-sm-10">
-                                    <h:inputText type="password" class="form-control" id="desc" a:placeholder="Enter la description de laboratoire"/>
+                                <div class="form-group">
+                                    <h:outputLabel class="control-label col-sm-1" for="datecreation">Date de creation </h:outputLabel>
+                                    <div class="col-sm-10">
+                                        <h:inputText type="txt" class="form-control" id="datecreation" a:placeholder="Enter la date de creation de l'equipe"/>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <h:outputLabel class="control-label col-sm-1" for="chef">Chef de laboratoire</h:outputLabel>
-                                <div class="col-sm-10">
-                                    <h:selectOneMenu value = "" id="chef">
-                                        <f:selectItem itemValue = "1" itemLabel = "Item 1" />
-                                        <f:selectItem itemValue = "2" itemLabel = "Item 2" />
-                                        <f:selectItem itemValue = "3" itemLabel = "Item 3" />
-                                        <f:selectItem itemValue = "4" itemLabel = "Item 4" />
-                                        <f:selectItem itemValue = "5" itemLabel = "Item 5" />
-                                    </h:selectOneMenu>
+                                <div class="form-group">
+                                    <h:outputLabel class="control-label col-sm-1" for="chef">Chef de l'equipe</h:outputLabel>
+                                    <div class="col-sm-10">
+                                        <h:selectOneMenu value = "" id="chef">
+                                            <f:selectItem itemValue = "1" itemLabel = "Item 1" />
+                                            <f:selectItem itemValue = "2" itemLabel = "Item 2" />
+                                            <f:selectItem itemValue = "3" itemLabel = "Item 3" />
+                                            <f:selectItem itemValue = "4" itemLabel = "Item 4" />
+                                            <f:selectItem itemValue = "5" itemLabel = "Item 5" />
+                                        </h:selectOneMenu>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-offset-5 col-sm-12">
-                                    <h:commandButton value="Submit" class="btn btn-default"></h:commandButton>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-5 col-sm-12">
+                                        <h:commandButton value="Submit" class="btn btn-default"></h:commandButton>
+                                    </div>
                                 </div>
-                            </div>
-                        </h:form>
-                    </section>
+                            </h:form>
+                        </section>
                     </div>
 
                 </section>
+
+
+
+
+
+
+
             </div>
         </div>
 

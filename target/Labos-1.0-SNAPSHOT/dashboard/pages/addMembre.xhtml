@@ -4,7 +4,7 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui" xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 
 
     <ui:include src="head.xhtml"></ui:include>
@@ -81,61 +81,99 @@
                 <!-- ./col -->
             </div>
                     <!-- /.row -->
+                    <div class="bg-black"><center><h2>Ajouter un Membre</h2></center></div>
+                    <div class="bg-gray-light">
+                    <section class="content">
+                        <h:form class="form-horizontal">
+                            <div class="form-group">
+                                <h:outputLabel class="control-label col-sm-1" for="nom">Nom</h:outputLabel>
+                                <div class="col-sm-10">
+                                    <h:inputText type="text" class="form-control" id="nom" a:placeholder="Enter le nom"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <h:outputLabel class="control-label col-sm-1" for="prenom">Prenom</h:outputLabel>
+                                <div class="col-sm-10">
+                                    <h:inputText type="text" class="form-control" id="prenom" a:placeholder="Enter le prenom"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <h:outputLabel class="control-label col-sm-1" for="login">Login</h:outputLabel>
+                                <div class="col-sm-10">
+                                    <h:inputText type="text" class="form-control" id="login" a:placeholder="Enter le le login"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <h:outputLabel class="control-label col-sm-1" for="password">Password</h:outputLabel>
+                                <div class="col-sm-10">
+                                    <h:inputText type="text" class="form-control" id="password" a:placeholder="Enter la mot de passe"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <h:outputLabel class="control-label col-sm-1" for="ville">Ville</h:outputLabel>
+                                <div class="col-sm-10">
+                                    <h:inputText type="text" class="form-control" id="ville" a:placeholder="Enter la ville"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <h:outputLabel class="control-label col-sm-1" for="pays">Pays</h:outputLabel>
+                                <div class="col-sm-10">
+                                    <h:inputText type="text" class="form-control" id="pays" a:placeholder="Enter le pays"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <h:outputLabel class="control-label col-sm-1" for="email">e-mail</h:outputLabel>
+                                <div class="col-sm-10">
+                                    <h:inputText type="text" class="form-control" id="email" a:placeholder="Enter l'email"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <h:outputLabel class="control-label col-sm-1" for="tel">Telephone</h:outputLabel>
+                                <div class="col-sm-10">
+                                    <h:inputText type="text" class="form-control" id="tel" a:placeholder="Enter la telephone"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <h:outputLabel class="control-label col-sm-1" for="titre">Titre</h:outputLabel>
+                                <div class="col-sm-10">
+                                    <h:inputText type="text" class="form-control" id="titre" a:placeholder="Enter la titre"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <h:outputLabel class="control-label col-sm-1" for="resume">Resumé</h:outputLabel>
+                                <div class="col-sm-10">
+                                    <h:inputTextarea type="text" class="form-control" id="resume" a:placeholder="Ecriver un resumé"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <h:outputLabel class="control-label col-sm-1" for="photo">Photo</h:outputLabel>
+                                <div class="col-sm-10">
+                                    <h:inputFile  id="photo" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <h:outputLabel class="control-label col-sm-1" for="team">Equipe</h:outputLabel>
+                                <div class="col-sm-10">
+                                    <h:selectOneMenu value = "" id="team">
+                                        <f:selectItem itemValue = "1" itemLabel = "Item 1" />
+                                        <f:selectItem itemValue = "2" itemLabel = "Item 2" />
+                                        <f:selectItem itemValue = "3" itemLabel = "Item 3" />
+                                        <f:selectItem itemValue = "4" itemLabel = "Item 4" />
+                                        <f:selectItem itemValue = "5" itemLabel = "Item 5" />
+                                    </h:selectOneMenu>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-5 col-sm-12">
+                                    <h:commandButton value="Submit" class="btn btn-default"></h:commandButton>
+                                </div>
+                            </div>
+                        </h:form>
+                    </section>
+                    </div>
+
+
                 </section>
-
-
-
-                <section class="content">
-
-                    <div class="form-group">
-                        <h:outputLabel for="nom">Nom</h:outputLabel>
-                            <h:inputText type="text" class="form-control" id="nom" />
-                    </div>
-                    <div class="form-group">
-                        <h:outputLabel for="prenom">Nom</h:outputLabel>
-                        <h:inputText type="text" class="form-control" id="prenom" />
-                    </div>
-                    <div class="form-group">
-                        <h:outputLabel for="login">Login</h:outputLabel>
-                        <h:inputText type="text" class="form-control" id="login" />
-                    </div>
-                    <div class="form-group">
-                        <h:outputLabel for="password">Password</h:outputLabel>
-                        <h:inputText type="text" class="form-control" id="password" />
-                    </div>
-                    <div class="form-group">
-                        <h:outputLabel for="ville">Ville</h:outputLabel>
-                        <h:inputText type="text" class="form-control" id="ville" />
-                    </div>
-                    <div class="form-group">
-                        <h:outputLabel for="pays">Pays</h:outputLabel>
-                            <h:inputText type="text" class="form-control" id="pays" />
-                    </div>
-                    <div class="form-group">
-                        <h:outputLabel for="email">e-mail</h:outputLabel>
-                        <h:inputText type="text" class="form-control" id="email" />
-                    </div>
-                    <div class="form-group">
-                        <h:outputLabel for="tel">Telephone</h:outputLabel>
-                        <h:inputText type="text" class="form-control" id="tel" />
-                    </div>
-                    <div class="form-group">
-                        <h:outputLabel for="titre">Titre</h:outputLabel>
-                        <h:inputText type="text" class="form-control" id="titre" />
-                    </div>
-                    <div class="form-group">
-                        <h:outputLabel for="resume">Resumé</h:outputLabel>
-                        <h:inputTextarea type="text" class="form-control" id="resume" />
-                    </div>
-                    <div class="form-group">
-                        <h:outputLabel for="photo">Photo</h:outputLabel>
-                        <h:inputFile type="text" class="form-control" id="photo" />
-                    </div>
-                    <div class="form-group">
-                        <h:commandButton class="form-control" value="Ajouter" />
-                    </div>
-                </section>
-
 
 
             </div>
