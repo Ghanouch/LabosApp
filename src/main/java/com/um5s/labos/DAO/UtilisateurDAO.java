@@ -20,15 +20,17 @@ import java.util.Set;
 
 
 public class UtilisateurDAO implements IUtilisateurDAO {
-    
+
     private Session session = HibernateUtil.getSessionFactory().openSession();
 
+    @Override
     public void ajouter(Utilisateur u) {
         session.getTransaction().begin();
         session.save(u);
         session.getTransaction().commit();
     }
 
+    @Override
     public Utilisateur modifier(Utilisateur u) {
         Utilisateur ut = null;
         session.getTransaction().begin();
@@ -37,26 +39,32 @@ public class UtilisateurDAO implements IUtilisateurDAO {
         return ut;
     }
 
+    @Override
     public void supprimer(Utilisateur u) {
         session.getTransaction().begin();
         session.delete(u);
         session.getTransaction().commit();
     }
 
+    @Override
     public List<Utilisateur> getAll()
     {
         return session.createQuery("from Utilisateur").list();
     }
 
+    @Override
     public Utilisateur parID(long id) {
         return (Utilisateur) session.load(Utilisateur.class, id);
     }
+
+
 
     public void close()
     {
         session.close();
     }
 
+    @Override
     public Set<Publication> AllPublications(Utilisateur u)
     {
         return u.getListDesPublications();

@@ -17,11 +17,7 @@ import javax.persistence.OneToOne;
  */
 @Entity
 public class AdministrateurLabo extends Utilisateur{
-    
-    
-    @OneToOne
-    @JoinColumn(name = "Admin_Labo_ID")
-    private Laboratoire laboratoire;
+
 
     public AdministrateurLabo(String nom, String prenom, String login, String password, String email, String tel, String titre, String ville, String pays, String resume, String photo) {
         super(nom, prenom, login, password, email, tel, titre, ville, pays, resume, photo);
@@ -34,15 +30,8 @@ public class AdministrateurLabo extends Utilisateur{
     public AdministrateurLabo() {
     }
 
-    public Laboratoire getLaboratoire() {
-        return laboratoire;
-    }
 
-    public void setLaboratoire(Laboratoire laboratoire) {
-        this.laboratoire = laboratoire;
-    }
-    
-  
-    
-    
+
+
+
 }

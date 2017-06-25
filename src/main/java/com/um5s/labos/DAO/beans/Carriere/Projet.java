@@ -22,7 +22,7 @@ import javax.persistence.OneToOne;
  */
 @Entity
 public class Projet {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -31,7 +31,7 @@ public class Projet {
     private Date dateFin;
     private String URL;
     private String description;
-    
+
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "User_Id")
     private Utilisateur utilisateur;
@@ -52,8 +52,8 @@ public class Projet {
         this.description = description;
         this.utilisateur = utilisateur;
     }
-    
-    
+
+
 
     public long getId() {
         return id;
@@ -110,7 +110,5 @@ public class Projet {
     public void setUtilisateur(Utilisateur utilisateur) {
         this.utilisateur = utilisateur;
     }
-    
-    
     
 }

@@ -6,7 +6,6 @@
 package com.um5s.labos;
 
 
-import com.um5s.labos.DAO.GenericDAO;
 import com.um5s.labos.DAO.beans.Profil.SuperAdmin;
 import com.um5s.labos.DAO.beans.Profil.Utilisateur;
 import com.um5s.labos.DAO.beans.Travail.CentreRecherche;

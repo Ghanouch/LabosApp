@@ -19,9 +19,7 @@ import javax.persistence.OneToOne;
 public class Membre extends Utilisateur {
     
     
-    @OneToOne
-    @JoinColumn(name = "Membre_Equipe_ID")
-    private Equipe equipe;
+
 
     public Membre(String nom, String prenom, String login, String password, String email, String tel, String titre, String ville, String pays, String resume, String photo) {
         super(nom, prenom, login, password, email, tel, titre, ville, pays, resume, photo);
@@ -34,13 +32,6 @@ public class Membre extends Utilisateur {
     public Membre() {
     }
 
-    public Equipe getEquipe() {
-        return equipe;
-    }
-
-    public void setEquipe(Equipe equipe) {
-        this.equipe = equipe;
-    }
     
     
     

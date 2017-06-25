@@ -6,8 +6,6 @@
 package com.um5s.labos;
 
 
-import com.um5s.labos.DAO.GenericDAO;
-import com.um5s.labos.DAO.UtilisateurDAO;
 import com.um5s.labos.DAO.beans.Carriere.*;
 import com.um5s.labos.DAO.beans.Profil.ChefEquipe;
 import com.um5s.labos.DAO.beans.Profil.Utilisateur;

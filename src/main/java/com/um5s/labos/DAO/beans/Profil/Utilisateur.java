@@ -31,11 +31,11 @@ import java.util.Set;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "TypeUser")
 public abstract class Utilisateur {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "User_Id")
-    private long id; 
+    private long id;
     private String nom;
     private String prenom;
     private String login;
@@ -47,37 +47,37 @@ public abstract class Utilisateur {
     private String pays;
     private String resume;
     private String photo;
-    
+
     @OneToMany(cascade = CascadeType.ALL ,fetch = FetchType.LAZY)
     @JoinColumn(name = "User_Id")
     private Set<Publication> listDesPublications = new HashSet<Publication>();
-    
+
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "User_Id")
     private Set<Experience> listDesExperiences = new HashSet<Experience>();
-    
+
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "User_Id")
     private Set<Certification> listDesCertifications = new HashSet<Certification>();
-    
+
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "User_Id")
     private Set<MatiereEnseigne> listDesMatieres = new HashSet<MatiereEnseigne>();
-    
+
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "User_Id")
     private Set<Projet> listDesProjets = new HashSet<Projet>();
-    
+
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "User_Id")
     private Set<Divers> listDesDivers = new HashSet<Divers>();
-    
+
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY , mappedBy = "pk.utilisateur")
     private Set<UserComptence> userCompetences = new HashSet<UserComptence>();
-    
-    
-    
-    
+
+
+
+
     public Utilisateur(String nom, String prenom, String login, String password, String email, String tel, String titre, String ville, String pays, String resume, String photo) {
         this.nom = nom;
         this.prenom = prenom;
@@ -101,8 +101,8 @@ public abstract class Utilisateur {
 
     public Utilisateur() {
     }
-    
-    
+
+
 
     public long getId() {
         return id;
@@ -264,9 +264,9 @@ public abstract class Utilisateur {
 
 
 
-    
-    
-    
-    
-    
+
+
+
+
+
 }

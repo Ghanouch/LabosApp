@@ -20,17 +20,17 @@ import javax.persistence.OneToOne;
  */
 @Entity
 public class DomaineRecherche {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="Domaine_ID")
     private long id;
     private String title;
-    
+
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "Labo_ID")
     private Laboratoire laboratoire;
-    
+
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "Equipe_ID")
     private Equipe equipe;
@@ -48,8 +48,8 @@ public class DomaineRecherche {
     public DomaineRecherche() {
     }
 
-    
-    
+
+
     public long getId() {
         return id;
     }
@@ -58,7 +58,7 @@ public class DomaineRecherche {
         return title;
     }
 
- 
+
 
     public Laboratoire getLaboratoire() {
         return laboratoire;
@@ -76,7 +76,7 @@ public class DomaineRecherche {
         this.title = title;
     }
 
-  
+
     public void setLaboratoire(Laboratoire laboratoire) {
         this.laboratoire = laboratoire;
     }
@@ -84,7 +84,5 @@ public class DomaineRecherche {
     public void setEquipe(Equipe equipe) {
         this.equipe = equipe;
     }
-    
-    
-    
+
 }

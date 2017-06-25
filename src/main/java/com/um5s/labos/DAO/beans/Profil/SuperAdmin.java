@@ -17,10 +17,6 @@ import javax.persistence.OneToOne;
  */
 @Entity
 public class SuperAdmin extends Utilisateur {
-    
-    @OneToOne
-    @JoinColumn(name = "Admin_Centre_ID")
-    private CentreRecherche centreRecherche;
 
     public SuperAdmin(String nom, String prenom, String login, String password, String email, String tel, String titre, String ville, String pays, String resume, String photo) {
         super(nom, prenom, login, password, email, tel, titre, ville, pays, resume, photo);
@@ -33,13 +29,4 @@ public class SuperAdmin extends Utilisateur {
     public SuperAdmin() {
     }
 
-    public CentreRecherche getCentreRecherche() {
-        return centreRecherche;
-    }
-
-    public void setCentreRecherche(CentreRecherche centreRecherche) {
-        this.centreRecherche = centreRecherche;
-    }
-    
-    
 }

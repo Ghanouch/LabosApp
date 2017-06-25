@@ -27,7 +27,7 @@ import javax.persistence.OneToOne;
  */
 @Entity
 public class Laboratoire {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Labo_ID")
@@ -35,22 +35,22 @@ public class Laboratoire {
     private String nom;
     private String adresse;
     private String Description;
-    
-    
+
+
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "Centre_ID")
     private CentreRecherche centreRecherche;
-    
+
     @OneToOne
     @JoinColumn(name="User_id")
     private AdministrateurLabo administrateurLabo;
-    
+
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "Equipe_ID")    
+    @JoinColumn(name = "Labo_ID")
     private Set<Equipe> listEquipes = new HashSet<Equipe>();
-    
+
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "Domaine_ID")    
+    @JoinColumn(name = "Labo_ID")
     private Set<DomaineRecherche> listDomaines = new HashSet<DomaineRecherche>();
 
     public Laboratoire(String nom, String adresse, String Description) {
@@ -62,7 +62,7 @@ public class Laboratoire {
     public Laboratoire() {
     }
 
-    
+
     public long getId() {
         return id;
     }
@@ -83,7 +83,7 @@ public class Laboratoire {
         return centreRecherche;
     }
 
-  
+
 
     public void setId(long id) {
         this.id = id;
@@ -113,7 +113,7 @@ public class Laboratoire {
         this.administrateurLabo = administrateurLabo;
     }
 
-   
+
 
     @Override
     public String toString() {
@@ -135,7 +135,6 @@ public class Laboratoire {
     public void setListDomaines(Set<DomaineRecherche> listDomaines) {
         this.listDomaines = listDomaines;
     }
-            
-    
-    
+
+
 }

@@ -28,35 +28,33 @@ import javax.persistence.OneToOne;
  */
 @Entity
 public class Equipe {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Equipe_ID")
     private long id;
     private String nom;
-    private String Description; 
+    private String Description;
     private Date dateCreation;
-    
+
     @OneToOne
     @JoinColumn(name = "User_Id")
     private ChefEquipe ChefEquipe;
-    
-    
+
+
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "Labo_ID")
     private Laboratoire laboratoire;
-    
+
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "Centre_ID")
     private CentreRecherche centreRecherche;
-    
+
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "Domaine_ID")    
+    @JoinColumn(name = "Equipe_ID")
     private Set<DomaineRecherche> listDomaines = new HashSet<DomaineRecherche>();
-    
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name="User_Id")
-    private Set<Membre> listDesMembres = new HashSet<Membre>();
+
+
 
     public Equipe(String nom, String Description) {
         this.nom = nom;
@@ -75,9 +73,9 @@ public class Equipe {
         this.centreRecherche = centreRecherche;
     }
 
-    
-    
-    
+
+
+
     public long getId() {
         return id;
     }
@@ -142,14 +140,6 @@ public class Equipe {
         this.listDomaines = listDomaines;
     }
 
-    public Set<Membre> getListDesMembres() {
-        return listDesMembres;
-    }
 
-    public void setListDesMembres(Set<Membre> listDesMembres) {
-        this.listDesMembres = listDesMembres;
-    }
-    
-    
-    
+
 }

@@ -19,10 +19,8 @@ import javax.persistence.OneToOne;
 @Entity
 @DiscriminatorValue(value = "Chef_Equipe")
 public class ChefEquipe extends Utilisateur{
-    
-    @OneToOne
-    @JoinColumn(name = "Equipe_ID")
-    private Equipe equipe;
+
+
 
     public ChefEquipe(String nom, String prenom, String login, String password, String email, String tel, String titre, String ville, String pays, String resume, String photo) {
         super(nom, prenom, login, password, email, tel, titre, ville, pays, resume, photo);
@@ -33,14 +31,6 @@ public class ChefEquipe extends Utilisateur{
     }
 
     public ChefEquipe() {
-    }
-
-    public Equipe getEquipe() {
-        return equipe;
-    }
-
-    public void setEquipe(Equipe equipe) {
-        this.equipe = equipe;
     }
     
     
