@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="de399a49-7597-48ef-bcf8-7e169b4baa59" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/dashboard/pages/addTeam.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/dashboard/pages/addLabos.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/dashboard/pages/addLabos.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/dashboard/pages/addMembre.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/dashboard/pages/addMembre.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/dashboard/pages/head.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/dashboard/pages/head.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/dashboard/pages/labos.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/dashboard/pages/labos.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/Labos-1.0-SNAPSHOT/dashboard/pages/addLabos.xhtml" afterPath="$PROJECT_DIR$/target/Labos-1.0-SNAPSHOT/dashboard/pages/addLabos.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/Labos-1.0-SNAPSHOT/dashboard/pages/addMembre.xhtml" afterPath="$PROJECT_DIR$/target/Labos-1.0-SNAPSHOT/dashboard/pages/addMembre.xhtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/dashboard/pages/addTeam.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/dashboard/pages/addTeam.xhtml" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -47,8 +40,8 @@
       <file leaf-file-name="addTeam.xhtml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/dashboard/pages/addTeam.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="103" column="143" lean-forward="false" selection-start-line="103" selection-start-column="143" selection-end-line="103" selection-end-column="143" />
+            <state relative-caret-position="294">
+              <caret line="118" column="56" lean-forward="true" selection-start-line="118" selection-start-column="56" selection-end-line="118" selection-end-column="56" />
               <folding />
             </state>
           </provider>
@@ -57,7 +50,7 @@
       <file leaf-file-name="Equipe.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/um5s/labos/DAO/beans/Travail/Equipe.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
+            <state relative-caret-position="570">
               <caret line="63" column="5" lean-forward="true" selection-start-line="63" selection-start-column="5" selection-end-line="63" selection-end-column="5" />
               <folding />
             </state>
@@ -1052,12 +1045,12 @@
       <workItem from="1498302955762" duration="4027000" />
       <workItem from="1498308617643" duration="9707000" />
       <workItem from="1498393373342" duration="4832000" />
-      <workItem from="1498401850178" duration="8011000" />
+      <workItem from="1498401850178" duration="9293000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48585000" />
+    <option name="totallyTimeSpent" value="49867000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1069,7 +1062,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1462,7 +1455,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/um5s/labos/DAO/beans/Travail/Equipe.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
+        <state relative-caret-position="570">
           <caret line="63" column="5" lean-forward="true" selection-start-line="63" selection-start-column="5" selection-end-line="63" selection-end-column="5" />
           <folding />
         </state>
@@ -1470,8 +1463,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/dashboard/pages/addTeam.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="103" column="143" lean-forward="false" selection-start-line="103" selection-start-column="143" selection-end-line="103" selection-end-column="143" />
+        <state relative-caret-position="294">
+          <caret line="118" column="56" lean-forward="true" selection-start-line="118" selection-start-column="56" selection-end-line="118" selection-end-column="56" />
           <folding />
         </state>
       </provider>
