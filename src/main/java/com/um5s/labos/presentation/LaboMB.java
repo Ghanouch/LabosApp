@@ -49,6 +49,7 @@ public class LaboMB implements Serializable {
         AdministrateurLabo adminLabo = serviceAdminLabo.parID(Long.parseLong(idAdmin));
         labo.setAdministrateurLabo(adminLabo);
         serviceLabo.ajouter(labo);
+        list_of_labo.add(labo);
         return "labos";
     }
 
@@ -67,15 +68,6 @@ public class LaboMB implements Serializable {
         FacesContext.getCurrentInstance().addMessage(null, msg);
     }
 
-    public void onCellEdit(CellEditEvent event) {
-        Object oldValue = event.getOldValue();
-        Object newValue = event.getNewValue();
-
-        if(newValue != null && !newValue.equals(oldValue)) {
-            FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Cell Changed", "Old: " + oldValue + ", New:" + newValue);
-            FacesContext.getCurrentInstance().addMessage(null, msg);
-        }
-    }
 
 
 

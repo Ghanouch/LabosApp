@@ -5,8 +5,11 @@ import com.um5s.labos.DAO.beans.Profil.ChefEquipe;
 import com.um5s.labos.DAO.beans.Travail.Equipe;
 import com.um5s.labos.DAO.beans.Travail.Laboratoire;
 import com.um5s.labos.service.ServiceGeneric;
+import org.primefaces.event.RowEditEvent;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
 import java.io.Serializable;
 import java.util.List;
 
@@ -22,6 +25,7 @@ public class EquipeMB implements Serializable {
 
     List<Laboratoire> list_of_labo ;
     List<ChefEquipe> list_Of_CE ;
+    List<Equipe> list_of_teams;
 
     private String idCE;
     private String idLab;
@@ -46,6 +50,29 @@ public class EquipeMB implements Serializable {
         return "teams";
 
     }
+
+    public void onRowEdit(RowEditEvent event) {
+
+        Equipe equipe = (Equipe) event.getObject();
+        ChefEquipe chefEquipe = serviceChefEquipe.parID(Long.parseLong(idCE));
+        long idLabo = Long.parseLong(idLab);
+        if(idLabo == 0)
+            equipe.setLaboratoire(null);
+        else
+            equipe.setLaboratoire(serviceLabo.parID(idLabo));
+
+        equipe.setChefEquipe(chefEquipe);
+
+        serviceEquipe.modifier(equipe);
+        FacesMessage msg = new FacesMessage("Labo Edited", ((Equipe) event.getObject()).getNom());
+        FacesContext.getCurrentInstance().addMessage(null, msg);
+    }
+
+    public void onRowCancel(RowEditEvent event) {
+        FacesMessage msg = new FacesMessage("Edit Cancelled", ((Equipe) event.getObject()).getNom());
+        FacesContext.getCurrentInstance().addMessage(null, msg);
+    }
+
 
     public ServiceGeneric<Equipe> getServiceEquipe() {
         return serviceEquipe;
@@ -125,5 +152,15 @@ public class EquipeMB implements Serializable {
 
     public void setDateCreation(String dateCreation) {
         this.dateCreation = dateCreation;
+    }
+
+    public List<Equipe> getList_of_teams() {
+        if (list_of_teams == null)
+            list_of_teams = serviceEquipe.getAll();
+        return list_of_teams;
+    }
+
+    public void setList_of_teams(List<Equipe> list_of_teams) {
+        this.list_of_teams = list_of_teams;
     }
 }

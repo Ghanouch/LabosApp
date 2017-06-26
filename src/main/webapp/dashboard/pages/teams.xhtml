@@ -1,9 +1,165 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
-<ui:include src="dashboard.xhtml"></ui:include>
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+
+<ui:include src="head.xhtml"></ui:include>
+
+<h:head>
+    <title>Gestion Equipes</title>
+
+</h:head>
+<h:body>
+
+    <div class="wrapper">
+        <!-- Main content -->
+        <div class="content-wrapper">
+            <section class="content">
+                <!-- Small boxes (Stat box) -->
+                <div class="row">
+                    <div class="col-lg-3 col-xs-6">
+                        <!-- small box -->
+                        <div class="small-box bg-aqua">
+                            <div class="inner">
+                                <h3>150</h3>
+
+                                <p>Toatl Labos</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fa fa-flask" aria-hidden="true"></i>
+                            </div>
+                            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- ./col -->
+                    <div class="col-lg-3 col-xs-6">
+                        <!-- small box -->
+                        <div class="small-box bg-green">
+                            <div class="inner">
+                                <h3>53<sup style="font-size: 20px">%</sup></h3>
+
+                                <p>Total equipes</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fa fa-users" aria-hidden="true"></i>
+                            </div>
+                            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- ./col -->
+                    <div class="col-lg-3 col-xs-6">
+                        <!-- small box -->
+                        <div class="small-box bg-yellow">
+                            <div class="inner">
+                                <h3>44</h3>
+
+                                <p>Total Membres</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fa fa-user" aria-hidden="true"></i>
+                            </div>
+                            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- ./col -->
+                    <div class="col-lg-3 col-xs-6">
+                        <!-- small box -->
+                        <div class="small-box bg-red">
+                            <div class="inner">
+                                <h3>65</h3>
+
+                                <p>Unique Visitors</p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-pie-graph"></i>
+                            </div>
+                            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- ./col -->
+                </div>
+                <!-- /.row -->
+            </section>
+
+            <section class="content">
+                <!-- Small boxes (Stat box) -->
+
+                <div class="row">
+
+                    <h:form id="form">
+                        <p:growl id="msgs" showDetail="true"/>
+
+                        <p:dataTable id="labo" var="team" value="#{equipeMB.list_of_teams}" editable="true" style="margin-bottom:20px">
+                            <f:facet name="header">
+                                La liste des Equipes  <p:button outcome="addTeam" value="Ajouter Equipe" class="btn" icon="ui-icon-star"></p:button>
+                            </f:facet>
+
+                            <p:ajax event="rowEdit" listener="#{equipeMB.onRowEdit}" update=":form:msgs" />
+                            <p:ajax event="rowEditCancel" listener="#{equipeMB.onRowCancel}" update=":form:msgs" />
+
+                            <p:column headerText="Nom">
+                                <p:cellEditor>
+                                    <f:facet name="output"><h:outputText value="#{team.nom}" /></f:facet>
+                                    <f:facet name="input"><p:inputText id="modelInput" value="#{team.nom}" style="width:100%"/></f:facet>
+                                </p:cellEditor>
+                            </p:column>
+
+                            <p:column headerText="Description">
+                                <p:cellEditor>
+                                    <f:facet name="output"><h:outputText value="#{team.description}" /></f:facet>
+                                    <f:facet name="input"><p:inputText value="#{team.description}" style="width:100%" label="Year"/></f:facet>
+                                </p:cellEditor>
+                            </p:column>
+
+                            <p:column headerText="Responsable">
+                                <p:cellEditor>
+                                    <f:facet name="output"><h:outputText value="#{team.chefEquipe.nom}" /></f:facet>
+                                    <f:facet name="input">
+                                        <h:selectOneMenu value="#{equipeMB.idCE}" style="width:100%">
+                                            <f:selectItems value="#{equipeMB.list_Of_CE}" var="CE" itemLabel="#{CE.nom}" itemValue="#{CE.id}" />
+                                        </h:selectOneMenu>
+                                    </f:facet>
+                                </p:cellEditor>
+                            </p:column>
+
+                            <p:column headerText="Laboratoire">
+                                <p:cellEditor>
+                                    <f:facet name="output"><h:outputText value="#{team.laboratoire.nom}" /></f:facet>
+                                    <f:facet name="input">
+                                        <h:selectOneMenu value="#{equipeMB.idLab}" style="width:100%">
+                                            <f:selectItem itemValue = "0" itemLabel = "__Lié au Centre__" />
+                                            <f:selectItems value="#{equipeMB.list_of_labo}" var="labo" itemLabel="#{labo.nom}" itemValue="#{labo.id}" />
+                                        </h:selectOneMenu>
+                                    </f:facet>
+                                </p:cellEditor>
+                            </p:column>
+
+
+                            <p:column style="width:32px">
+                                <p:rowEditor />
+                            </p:column>
+                        </p:dataTable>
+
+                    </h:form>
+
+                </div>
+                <!-- /.row -->
+            </section>
+
+        </div>
+    </div>
+
+
+
+
+
+
+</h:body>
+
+<ui:include src="footer.xhtml"></ui:include>
+
 </html>
