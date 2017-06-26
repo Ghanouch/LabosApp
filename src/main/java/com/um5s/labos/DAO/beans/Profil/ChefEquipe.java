@@ -26,6 +26,8 @@ public class ChefEquipe extends Utilisateur{
         super(nom, prenom, login, password, email, tel, titre, ville, pays, resume, photo);
     }
 
+
+
     public ChefEquipe(String nom, String prenom, String login, String password) {
         super(nom, prenom, login, password);
     }

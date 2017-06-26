@@ -10,6 +10,7 @@ import com.um5s.labos.DAO.GenericDAO;
 import com.um5s.labos.DAO.UtilisateurDAO;
 import com.um5s.labos.DAO.beans.Carriere.*;
 import com.um5s.labos.DAO.beans.Profil.ChefEquipe;
+import com.um5s.labos.DAO.beans.Profil.SuperAdmin;
 import com.um5s.labos.DAO.beans.Profil.Utilisateur;
 
 import java.util.HashSet;
@@ -21,11 +22,22 @@ import java.util.Set;
  */
 public class UserTEST {
     
-    public static void main(String[] str)
-    {
-         TEST_user_1();
+    public static void main(String[] str) {
+
+
     }
-    
+
+    public static void TEST_TypeUser()
+    {
+        GenericDAO<SuperAdmin> DAsu = new GenericDAO<SuperAdmin>(SuperAdmin.class);
+        DAsu.ajouter(new SuperAdmin("SA_nom","SA","SA","SA"));
+
+        GenericDAO<ChefEquipe> DAOChefEquipe = new GenericDAO<ChefEquipe>(ChefEquipe.class);
+        DAOChefEquipe.ajouter(new ChefEquipe("CE","CEghanouch","CElogin","CEpasswd"));
+
+        for( Utilisateur u : DAOChefEquipe.getAll())
+            System.out.println(u);
+    }
     public static void TEST_CARRIER()
     {
         UtilisateurDAO useDAO = new UtilisateurDAO();
