@@ -20,6 +20,7 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -30,7 +31,7 @@ import java.util.Set;
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "TypeUser")
-public abstract class Utilisateur {
+public  class Utilisateur  {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
