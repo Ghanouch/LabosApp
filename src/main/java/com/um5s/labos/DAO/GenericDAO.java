@@ -14,7 +14,7 @@ import org.hibernate.Session;
  *
  * @author l.IsSaM.l
  */
-public class GenericDAO<T> {
+public class GenericDAO<T> implements IDAOGeneric<T> {
 
     private String nomClass;
     Class classname;

@@ -19,7 +19,7 @@ import java.util.Set;
  */
 
 
-public class UtilisateurDAO implements IUtilisateurDAO {
+public class UtilisateurDAO implements IDAOGeneric<Utilisateur> {
 
     private Session session = HibernateUtil.getSessionFactory().openSession();
 
@@ -64,7 +64,6 @@ public class UtilisateurDAO implements IUtilisateurDAO {
         session.close();
     }
 
-    @Override
     public Set<Publication> AllPublications(Utilisateur u)
     {
         return u.getListDesPublications();
