@@ -74,7 +74,11 @@ public class Equipe {
     }
 
 
-
+    public Equipe(String nom, String description, Date dateCreation) {
+        this.nom = nom;
+        Description = description;
+        this.dateCreation = dateCreation;
+    }
 
     public long getId() {
         return id;

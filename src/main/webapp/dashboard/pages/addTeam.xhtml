@@ -10,7 +10,7 @@
     <ui:include src="head.xhtml"></ui:include>
 
     <h:head>
-        <title>Ajouter un labos</title>
+        <title>Ajouter une Equipe</title>
     </h:head>
     <h:body>
         <div class="wrapper">
@@ -89,60 +89,47 @@
                                 <div class="form-group">
                                     <h:outputLabel class="control-label col-sm-1" for="nom">Nom</h:outputLabel>
                                     <div class="col-sm-10">
-                                        <h:inputText type="text" class="form-control" id="nom" a:placeholder="Enter le nom de l'equipe"/>
+                                        <h:inputText type="text" value="#{equipeMB.nom}" class="form-control" id="nom" a:placeholder="Enter le nom de l'equipe"/>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <h:outputLabel class="control-label col-sm-1" for="desc">Description </h:outputLabel>
                                     <div class="col-sm-10">
-                                        <h:inputText type="txt" class="form-control" id="desc" a:placeholder="Enter la description de l'equipe"/>
+                                        <h:inputText type="txt" class="form-control"  value="#{equipeMB.description}" id="desc" a:placeholder="Enter la description de l'equipe"/>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <h:outputLabel class="control-label col-sm-1" for="datecreation">Date de creation </h:outputLabel>
                                     <div class="col-sm-10">
-                                        <h:inputText type="txt" class="form-control" id="datecreation" a:placeholder="Enter la date de creation de l'equipe"/>
+                                        <h:inputText type="txt" class="form-control" id="datecreation" value="#{equipeMB.dateCreation}" a:placeholder="Enter la date de creation de l'equipe"/>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <h:outputLabel class="control-label col-sm-1" for="chef">Chef de l'equipe</h:outputLabel>
                                     <div class="col-sm-10">
-                                        <h:selectOneMenu value = "" id="chef">
-                                            <f:selectItem itemValue = "1" itemLabel = "Item 1" />
-                                            <f:selectItem itemValue = "2" itemLabel = "Item 2" />
-                                            <f:selectItem itemValue = "3" itemLabel = "Item 3" />
-                                            <f:selectItem itemValue = "4" itemLabel = "Item 4" />
-                                            <f:selectItem itemValue = "5" itemLabel = "Item 5" />
+                                        <h:selectOneMenu value = "#{equipeMB.idCE}" id="chef">
+                                            <f:selectItem itemValue = "" itemLabel = "" />
+                                            <f:selectItems var="CE" value="#{equipeMB.list_Of_CE}" itemLabel="#{CE.nom}" itemValue="#{CE.id}" />
+
                                         </h:selectOneMenu>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <h:outputLabel class="control-label col-sm-1" for="labo">Laboratoire</h:outputLabel>
                                     <div class="col-sm-10">
-                                        <h:selectOneMenu value = "" id="labo">
-                                            <f:selectItem itemValue = "1" itemLabel = "Item 1" />
-                                            <f:selectItem itemValue = "2" itemLabel = "Item 2" />
-                                            <f:selectItem itemValue = "3" itemLabel = "Item 3" />
-                                            <f:selectItem itemValue = "4" itemLabel = "Item 4" />
-                                            <f:selectItem itemValue = "5" itemLabel = "Item 5" />
+                                        <h:selectOneMenu value = "#{equipeMB.idLab}" id="labo">
+                                            <f:selectItem itemValue = "0" itemLabel = "__Lié au Centre__" />
+                                            <f:selectItems var="Labo" value="#{equipeMB.list_of_labo}" itemValue="#{Labo.id}" itemLabel="#{Labo.nom}" />
                                         </h:selectOneMenu>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <h:outputLabel class="control-label col-sm-1" for="dom">List des dommaines</h:outputLabel>
-                                    <div class="col-sm-10">
-                                        <h:selectManyCheckbox value = "" id="dom">
-                                            <f:selectItem itemValue = "1" itemLabel = "Item 1" />
-                                            <f:selectItem itemValue = "2" itemLabel = "Item 2" />
-                                            <f:selectItem itemValue = "3" itemLabel = "Item 3" />
-                                            <f:selectItem itemValue = "4" itemLabel = "Item 4" />
-                                            <f:selectItem itemValue = "5" itemLabel = "Item 5" />
-                                        </h:selectManyCheckbox>
-                                    </div>
+                                    List des dommaines
+
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-offset-5 col-sm-12">
-                                        <h:commandButton value="Submit" class="btn btn-default"></h:commandButton>
+                                        <h:commandButton action="#{equipeMB.addEquipe}" value="Submit" class="btn btn-default"></h:commandButton>
                                     </div>
                                 </div>
                             </h:form>
