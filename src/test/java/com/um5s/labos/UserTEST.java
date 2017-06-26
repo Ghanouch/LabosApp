@@ -6,6 +6,8 @@
 package com.um5s.labos;
 
 
+import com.um5s.labos.DAO.GenericDAO;
+import com.um5s.labos.DAO.UtilisateurDAO;
 import com.um5s.labos.DAO.beans.Carriere.*;
 import com.um5s.labos.DAO.beans.Profil.ChefEquipe;
 import com.um5s.labos.DAO.beans.Profil.Utilisateur;
@@ -22,7 +24,6 @@ public class UserTEST {
     public static void main(String[] str)
     {
          TEST_user_1();
-
     }
     
     public static void TEST_CARRIER()
@@ -54,8 +55,8 @@ public class UserTEST {
     {
          UtilisateurDAO useDAO = new UtilisateurDAO();
         
-        GenericDAO<Publication> publicationDAO = new  GenericDAO<Publication>("Publication",Publication.class);
-        GenericDAO<Experience>  experienceDAO  = new  GenericDAO<Experience>("Experience",Exception.class);
+        GenericDAO<Publication> publicationDAO = new GenericDAO<Publication>("Publication",Publication.class);
+        GenericDAO<Experience>  experienceDAO  = new  GenericDAO<Experience>("Experience",Experience.class);
         
         Utilisateur u = new ChefEquipe("GHANOUCH", "issam", "login", "passwd");
         

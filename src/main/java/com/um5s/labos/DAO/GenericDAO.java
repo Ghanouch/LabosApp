@@ -17,7 +17,7 @@ import org.hibernate.Session;
 public class GenericDAO<T> {
 
     private String nomClass;
-    Class classname ;
+    Class classname;
     private T clzz;
     private Session session = HibernateUtil.getSessionFactory().openSession();
 
@@ -26,8 +26,8 @@ public class GenericDAO<T> {
         try{
             this.nomClass = nomClass;
             this.classname = classname;
-            clzz = (T) Class.forName("beans.Profil."+nomClass).newInstance();
-        }catch(Exception e)
+            //clzz = (T) Class.forName("beans.Carriere." + nomClass).newInstance();
+        } catch(Exception e)
         {
             e.printStackTrace();
         }
