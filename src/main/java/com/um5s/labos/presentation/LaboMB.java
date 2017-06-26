@@ -5,8 +5,12 @@ import com.um5s.labos.DAO.beans.Profil.AdministrateurLabo;
 import com.um5s.labos.DAO.beans.Profil.ChefEquipe;
 import com.um5s.labos.DAO.beans.Travail.Laboratoire;
 import com.um5s.labos.service.ServiceGeneric;
+import org.primefaces.event.CellEditEvent;
+import org.primefaces.event.RowEditEvent;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
 import java.io.Serializable;
 import java.util.List;
 
@@ -16,15 +20,25 @@ import java.util.List;
 @ManagedBean
 public class LaboMB implements Serializable {
 
+    // Le service d'un labo
     ServiceGeneric<Laboratoire> serviceLabo = new ServiceGeneric<Laboratoire>(new GenericDAO<Laboratoire>(Laboratoire.class));
+
+    // Le service d'un admin labo
     ServiceGeneric<AdministrateurLabo> serviceAdminLabo = new ServiceGeneric<AdministrateurLabo>(new GenericDAO<AdministrateurLabo>(AdministrateurLabo.class));
 
+    // La liste des administrateurs
     List<AdministrateurLabo> list_Of_admin_labo;
+
+    // La liste des Labo
+    List<Laboratoire> list_of_labo ;
+
+
     private String idAdmin;
 
     public LaboMB()
     {
         list_Of_admin_labo = serviceAdminLabo.getAll();
+        list_of_labo       = serviceLabo.getAll();
     }
 
     String description, nom , adresse;
@@ -36,6 +50,31 @@ public class LaboMB implements Serializable {
         labo.setAdministrateurLabo(adminLabo);
         serviceLabo.ajouter(labo);
         return "labos";
+    }
+
+    public void onRowEdit(RowEditEvent event) {
+
+        Laboratoire lab = (Laboratoire) event.getObject();
+        AdministrateurLabo adminLabo = serviceAdminLabo.parID(Long.parseLong(idAdmin));
+        lab.setAdministrateurLabo(adminLabo);
+        serviceLabo.modifier(lab);
+        FacesMessage msg = new FacesMessage("Labo Edited", ((Laboratoire) event.getObject()).getNom());
+        FacesContext.getCurrentInstance().addMessage(null, msg);
+    }
+
+    public void onRowCancel(RowEditEvent event) {
+        FacesMessage msg = new FacesMessage("Edit Cancelled", ((Laboratoire) event.getObject()).getNom());
+        FacesContext.getCurrentInstance().addMessage(null, msg);
+    }
+
+    public void onCellEdit(CellEditEvent event) {
+        Object oldValue = event.getOldValue();
+        Object newValue = event.getNewValue();
+
+        if(newValue != null && !newValue.equals(oldValue)) {
+            FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Cell Changed", "Old: " + oldValue + ", New:" + newValue);
+            FacesContext.getCurrentInstance().addMessage(null, msg);
+        }
     }
 
 
@@ -95,5 +134,13 @@ public class LaboMB implements Serializable {
 
     public void setIdAdmin(String idAdmin) {
         this.idAdmin = idAdmin;
+    }
+
+    public List<Laboratoire> getList_of_labo() {
+        return list_of_labo;
+    }
+
+    public void setList_of_labo(List<Laboratoire> list_of_labo) {
+        this.list_of_labo = list_of_labo;
     }
 }
