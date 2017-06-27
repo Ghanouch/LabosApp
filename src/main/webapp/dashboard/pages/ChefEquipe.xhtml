@@ -10,11 +10,9 @@
 <ui:include src="head.xhtml"></ui:include>
 
 <h:head>
-    <title>Labos</title>
-
+    <title>Chef d'Equipe</title>
 </h:head>
 <h:body>
-
     <div class="wrapper">
         <!-- Main content -->
         <div class="content-wrapper">
@@ -86,76 +84,57 @@
             </section>
 
             <section class="content">
-                <!-- Small boxes (Stat box) -->
 
+                <h:form>
+                    <p:dataTable id="CETable" var="CE" value="#{chefEquipeMB.listOfChefEquipe}" widgetVar="CETable" multiViewState="true"
+                                 rows="10" paginator="true"
+                                 paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                 rowsPerPageTemplate="5,10,15"
+                                 selectionMode="single" selection="#{chefEquipeMB.selectedchefEquipe}" rowKey="#{CE.id}"
+                                 emptyMessage="No Membre found with given criteria" filteredValue="#{chefEquipeMB.filteredCE}">
+
+                        <f:facet name="header">
+                            <p:outputPanel>
+                                <h:outputText value="Search all fields:" />
+                                <p:inputText id="globalFilter" onkeyup="PF('CETable').filter()" style="width:150px" placeholder="Enter keyword"/>
+                            </p:outputPanel>
+                        </f:facet>
+
+                        <p:column headerText="Id" filterBy="#{CE.id}" sortBy="#{CE.id}" filterMatchMode="contains">
+                            <h:outputText value="#{CE.id}" />
+                        </p:column>
+
+                        <p:column headerText="NOM" filterBy="#{CE.nom}" sortBy="#{CE.nom}" filterMatchMode="startsWith">
+                            <h:outputText value="#{CE.nom}" />
+                        </p:column>
+
+                        <p:column headerText="PRENOM" filterBy="#{CE.prenom}" sortBy="#{CE.prenom}" filterMatchMode="startsWith">
+                            <h:outputText value="#{CE.prenom}" />
+                        </p:column>
+
+                        <p:column headerText="TEL" filterBy="#{CE.tel}" sortBy="#{CE.tel}" filterMatchMode="startsWith">
+                            <h:outputText value="#{CE.tel}" />
+                        </p:column>
+
+                        <p:column headerText="Ville" filterBy="#{CE.ville}" sortBy="#{CE.ville}" filterMatchMode="exact">
+                            <h:outputText value="#{CE.ville}" />
+                        </p:column>
+
+
+                    </p:dataTable>
+
+                </h:form>
+
+                <!-- Small boxes (Stat box) -->
                 <div class="row">
 
-                    <h:form id="form">
-                        <p:growl id="msgs" showDetail="true"/>
-
-                        <p:dataTable id="labo" var="labo" value="#{laboMB.list_of_labo}"
-                                     paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-                                     editable="true"
-                                     style="margin-bottom:20px" >
-                            <f:facet name="header">
-                                La liste des Laboratoires  <p:button outcome="addLabos" value="Ajouter Labo" class="btn" icon="ui-icon-star"></p:button>
-                            </f:facet>
-
-                            <p:ajax event="rowEdit" listener="#{laboMB.onRowEdit}" update=":form:msgs" />
-                            <p:ajax event="rowEditCancel" listener="#{laboMB.onRowCancel}" update=":form:msgs" />
-
-                            <p:column headerText="Nom">
-                                <p:cellEditor>
-                                    <f:facet name="output"><h:outputText value="#{labo.nom}" /></f:facet>
-                                    <f:facet name="input"><p:inputText id="modelInput" value="#{labo.nom}" style="width:100%"/></f:facet>
-                                </p:cellEditor>
-                            </p:column>
-
-                            <p:column headerText="Description">
-                                <p:cellEditor>
-                                    <f:facet name="output"><h:outputText value="#{labo.description}" /></f:facet>
-                                    <f:facet name="input"><p:inputText value="#{labo.description}" style="width:100%" label="Year"/></f:facet>
-                                </p:cellEditor>
-                            </p:column>
-
-                            <p:column headerText="Adresse">
-                                <p:cellEditor>
-                                    <f:facet name="output"><h:outputText value="#{labo.adresse}" /></f:facet>
-                                    <f:facet name="input"><p:inputText value="#{labo.adresse}" style="width:100%" label="Year"/></f:facet>
-                                </p:cellEditor>
-                            </p:column>
-
-                            <p:column headerText="Responsable du Laboratoire">
-                                <p:cellEditor>
-                                    <f:facet name="output"><h:outputText value="#{labo.administrateurLabo.nom}" /></f:facet>
-                                    <f:facet name="input">
-                                        <h:selectOneMenu value="#{laboMB.idAdmin}" style="width:100%">
-                                            <f:selectItems value="#{laboMB.list_Of_admin_labo}" var="admin" itemLabel="#{admin.nom}" itemValue="#{admin.id}" />
-                                        </h:selectOneMenu>
-                                    </f:facet>
-                                </p:cellEditor>
-                            </p:column>
-
-
-                            <p:column style="width:32px">
-                                <p:rowEditor />
-                            </p:column>
-                        </p:dataTable>
-
-                    </h:form>
-
+                    <!-- ./col -->
                 </div>
                 <!-- /.row -->
             </section>
 
         </div>
     </div>
-
-
-
-
-
-
 </h:body>
 
 <ui:include src="footer.xhtml"></ui:include>

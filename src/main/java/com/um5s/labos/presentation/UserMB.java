@@ -25,6 +25,8 @@ public class UserMB implements Serializable {
     private Utilisateur user;
     private String name, prenom, login,passwd, ville, pays, mail, tel, titre, resume;
 
+    /* Affichage des membres */
+
     public void AddUser()
     {
         int typeUtilisateur = Integer.parseInt(typeUser);

@@ -10,8 +10,10 @@ import com.um5s.labos.DAO.GenericDAO;
 import com.um5s.labos.DAO.UtilisateurDAO;
 import com.um5s.labos.DAO.beans.Carriere.*;
 import com.um5s.labos.DAO.beans.Profil.ChefEquipe;
+import com.um5s.labos.DAO.beans.Profil.Membre;
 import com.um5s.labos.DAO.beans.Profil.SuperAdmin;
 import com.um5s.labos.DAO.beans.Profil.Utilisateur;
+import com.um5s.labos.service.ServiceGeneric;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -23,6 +25,12 @@ import java.util.Set;
 public class UserTEST {
     
     public static void main(String[] str) {
+
+        GenericDAO<Membre> DAmem = new GenericDAO<Membre>(Membre.class);
+        ServiceGeneric<Membre> Semem = new ServiceGeneric<Membre>(DAmem);
+        for ( Membre m : Semem.getAll())
+            System.out.println(m);
+
 
 
     }
