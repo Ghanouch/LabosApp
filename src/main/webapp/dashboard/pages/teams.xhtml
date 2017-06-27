@@ -117,7 +117,7 @@
 
                             <p:column headerText="Responsable">
                                 <p:cellEditor>
-                                    <f:facet name="output"><h:outputText value="#{team.selectedchefEquipe.nom}" /></f:facet>
+                                    <f:facet name="output"><h:outputText value="#{team.chefEquipe.nom}" /></f:facet>
                                     <f:facet name="input">
                                         <h:selectOneMenu value="#{equipeMB.idCE}" style="width:100%">
                                             <f:selectItems value="#{equipeMB.list_Of_CE}" var="CE" itemLabel="#{CE.nom}" itemValue="#{CE.id}" />
