@@ -10,7 +10,7 @@
 <ui:include src="head.xhtml"></ui:include>
 
 <h:head>
-    <title>Membres</title>
+    <title>Les Membres Des Equipes</title>
 </h:head>
 <h:body>
     <div class="wrapper">
@@ -84,6 +84,48 @@
             </section>
 
             <section class="content">
+
+
+                <h:form>
+                    <p:dataTable id="CETable" var="CE" value="#{membreMB.listOfMembres}" widgetVar="CETable" multiViewState="true"
+                                 rows="10" paginator="true"
+                                 paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                 rowsPerPageTemplate="5,10,15"
+                                 selectionMode="single" selection="#{membreMB.selectedMembre}" rowKey="#{CE.id}"
+                                 emptyMessage="No Membre found with given criteria" >
+
+                        <f:facet name="header">
+                            <p:outputPanel>
+                                <h:outputText value="Search all fields:" />
+                                <p:inputText id="globalFilter" onkeyup="PF('CETable').filter()" style="width:150px" placeholder="Enter keyword"/>
+                            </p:outputPanel>
+                        </f:facet>
+
+                        <p:column headerText="Id" filterBy="#{CE.id}" sortBy="#{CE.id}" filterMatchMode="contains">
+                            <h:outputText value="#{CE.id}" />
+                        </p:column>
+
+                        <p:column headerText="NOM" filterBy="#{CE.nom}" sortBy="#{CE.nom}" filterMatchMode="startsWith">
+                            <h:outputText value="#{CE.nom}" />
+                        </p:column>
+
+                        <p:column headerText="PRENOM" filterBy="#{CE.prenom}" sortBy="#{CE.prenom}" filterMatchMode="startsWith">
+                            <h:outputText value="#{CE.prenom}" />
+                        </p:column>
+
+                        <p:column headerText="TEL" filterBy="#{CE.tel}" sortBy="#{CE.tel}" filterMatchMode="startsWith">
+                            <h:outputText value="#{CE.tel}" />
+                        </p:column>
+
+                        <p:column headerText="Ville" filterBy="#{CE.ville}" sortBy="#{CE.ville}" filterMatchMode="exact">
+                            <h:outputText value="#{CE.ville}" />
+                        </p:column>
+
+
+                    </p:dataTable>
+
+                </h:form>
+
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
 

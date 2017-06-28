@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+
+<ui:include src="head.xhtml"></ui:include>
+
+<h:head>
+    <title>Chef d'Equipe</title>
+</h:head>
+<h:body>
+    <div class="wrapper">
+        <!-- Main content -->
+        <div class="content-wrapper">
+            <section class="content">
+                <!-- Small boxes (Stat box) -->
+                <div class="row">
+                    <div class="col-lg-3 col-xs-6">
+                        <!-- small box -->
+                        <div class="small-box bg-aqua">
+                            <div class="inner">
+                                <h3>150</h3>
+
+                                <p>Toatl Labos</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fa fa-flask" aria-hidden="true"></i>
+                            </div>
+                            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- ./col -->
+                    <div class="col-lg-3 col-xs-6">
+                        <!-- small box -->
+                        <div class="small-box bg-green">
+                            <div class="inner">
+                                <h3>53<sup style="font-size: 20px">%</sup></h3>
+
+                                <p>Total equipes</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fa fa-users" aria-hidden="true"></i>
+                            </div>
+                            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- ./col -->
+                    <div class="col-lg-3 col-xs-6">
+                        <!-- small box -->
+                        <div class="small-box bg-yellow">
+                            <div class="inner">
+                                <h3>44</h3>
+
+                                <p>Total Membres</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fa fa-user" aria-hidden="true"></i>
+                            </div>
+                            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- ./col -->
+                    <div class="col-lg-3 col-xs-6">
+                        <!-- small box -->
+                        <div class="small-box bg-red">
+                            <div class="inner">
+                                <h3>65</h3>
+
+                                <p>Unique Visitors</p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-pie-graph"></i>
+                            </div>
+                            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- ./col -->
+                </div>
+                <!-- /.row -->
+            </section>
+
+            <section class="content">
+
+                <p:panelGrid columns="4" columnClasses="ui-grid-col-2,ui-grid-col-4,ui-grid-col-2,ui-grid-col-4"
+                             layout="grid" styleClass="ui-fluid card">
+                    <p:outputLabel for="input" value="Input"/>
+                    <p:inputText id="input"/>
+
+                    <p:outputLabel for="area" value="Textarea"/>
+                    <p:inputTextarea id="area"/>
+
+                    <p:outputLabel for="calendar" value="Calendar"/>
+                    <p:calendar id="calendar" showOn="button"/>
+
+                    <p:outputLabel for="ac" value="Auto Complete"/>
+                    <p:autoComplete id="ac" completeMethod="#{autoCompleteMB.completeText}" dropdown="true"/>
+
+                    <p:outputLabel for="mask" value="Mask"/>
+                    <p:inputMask id="mask" mask="99/99/9999"/>
+
+                    <p:outputLabel for="pwd" value="Password"/>
+                    <p:password id="pwd"/>
+
+                    <p:outputLabel for="keyboard" value="Keyboard"/>
+                    <p:keyboard id="keyboard"/>
+
+                    <p:outputLabel for="onemenu" value="OneMenu"/>
+                    <p:selectOneMenu id="onemenu">
+                        <f:selectItem itemLabel="Select One" itemValue=""/>
+                        <f:selectItem itemLabel="Xbox One" itemValue="Xbox One"/>
+                        <f:selectItem itemLabel="PS4" itemValue="PS4"/>
+                        <f:selectItem itemLabel="Wii U" itemValue="Wii U"/>
+                    </p:selectOneMenu>
+
+                    <p:outputLabel for="spinner" value="Spinner"/>
+                    <p:spinner id="spinner"/>
+
+                    <p:outputLabel for="slider" value="Slider"/>
+                    <p:outputPanel>
+                        <p:inputText id="slider"/>
+                        <p:slider for="slider"/>
+                    </p:outputPanel>
+
+                    <p:outputLabel for="radio" value="Radio"/>
+                    <p:selectOneRadio id="radio" value="#{radioMB.city2}" layout="responsive" columns="3">
+                        <f:selectItems value="#{radioMB.cities}" var="c" itemLabel="#{c}" itemValue="#{c}"/>
+                    </p:selectOneRadio>
+
+                    <p:outputLabel for="chkbox" value="Checkbox"/>
+                    <p:selectManyCheckbox id="chkbox" value="#{checkboxMB.selectedCities2}" layout="responsive"
+                                          columns="3">
+                        <f:selectItems value="#{checkboxMB.cities}" var="city" itemLabel="#{city}" itemValue="#{city}"/>
+                    </p:selectManyCheckbox>
+
+                    <p:outputLabel for="btn" value="Button"/>
+                    <p:commandButton id="btn" value="Edit" icon="fa fa-edit" type="button" styleClass="btn-primary"/>
+
+                    <p:outputLabel for="spbtn" value="SplitButton"/>
+                    <p:splitButton id="spbtn" value="Save" type="button" icon="fa fa-save" styleClass="btn-primary">
+                        <p:menuitem value="Update" url="#" icon="ui-icon-arrowrefresh-1-w"/>
+                        <p:menuitem value="Delete" url="#" icon="ui-icon-close"/>
+                        <p:separator/>
+                        <p:menuitem value="Homepage" url="http://www.primefaces.org" icon="ui-icon-extlink"/>
+                    </p:splitButton>
+
+                    <p:outputLabel for="chkmenu" value="Checkbox Menu"/>
+                    <p:selectCheckboxMenu id="chkmenu" label="Cities">
+                        <f:selectItems value="#{checkboxMB.cities}"/>
+                    </p:selectCheckboxMenu>
+
+                    <p:outputLabel for="chkmenu-multiple" value="Checkbox Menu Multiple"/>
+                    <p:selectCheckboxMenu id="chkmenu-multiple" label="Cities"
+                                          multiple="true" filter="true" filterMatchMode="startsWith">
+                        <f:selectItems value="#{checkboxMB.cities}"/>
+                    </p:selectCheckboxMenu>
+
+                    <p:outputLabel for="booleanBtn" value="Boolean Button"/>
+                    <p:selectBooleanButton id="booleanBtn" onLabel="Yes" offLabel="No" onIcon="ui-icon-check"
+                                           offIcon="ui-icon-close"/>
+
+                    <p:outputLabel for="oneBtn" value="OneButton"/>
+                    <p:selectOneButton id="oneBtn">
+                        <f:selectItem itemLabel="XB1" itemValue="XB1"/>
+                        <f:selectItem itemLabel="PS4" itemValue="PS4"/>
+                    </p:selectOneButton>
+
+                    <p:outputLabel for="manyBtn" value="Many Button"/>
+                    <p:selectOneButton id="manyBtn">
+                        <f:selectItem itemLabel="Spark" itemValue="Spark"/>
+                        <f:selectItem itemLabel="Ronin" itemValue="Ronin"/>
+                        <f:selectItem itemLabel="Rio" itemValue="Rio"/>
+                    </p:selectOneButton>
+
+                    <p:outputLabel for="menuBtn" value="Menu Button"/>
+                    <p:menuButton value="layout mode" id="menuBtn" styleClass="btn-primary">
+                        <p:menuitem value="Vertical" icon="fa fa-list-ul"/>
+                        <p:menuitem value="Horizontal" icon="fa fa-credit-card"/>
+                    </p:menuButton>
+
+                    <p:outputLabel for="listbox" value="Listbox"/>
+                    <p:selectOneListbox id="listbox">
+                        <f:selectItem itemLabel="Sentinel" itemValue="Sentinel"/>
+                        <f:selectItem itemLabel="Spark" itemValue="Spark"/>
+                        <f:selectItem itemLabel="Ronin" itemValue="Ronin"/>
+                        <f:selectItem itemLabel="Rio" itemValue="Rio"/>
+                        <f:selectItem itemLabel="Primus" itemValue="Primus"/>
+                    </p:selectOneListbox>
+
+                    <p:outputLabel for="cmdBtn" value="Command Button"/>
+                    <p:commandButton value="Action" id="cmdBtn" styleClass="btn-primary"/>
+                </p:panelGrid>
+
+                <!-- Small boxes (Stat box) -->
+                <div class="row">
+
+                    <!-- ./col -->
+                </div>
+                <!-- /.row -->
+            </section>
+
+        </div>
+    </div>
+</h:body>
+
+<ui:include src="footer.xhtml"></ui:include>
+
+</html>

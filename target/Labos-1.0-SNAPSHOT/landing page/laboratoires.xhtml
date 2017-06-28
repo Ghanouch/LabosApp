@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>personnels</title>
+</h:head>
+
+<ui:include src="head.xhtml"></ui:include>
+
+<h:body>
+
+    <h:form id="form">
+        <p:dataGrid var="labo" value="#{dataGridView.labos}" columns="3" layout="grid"
+                    rows="12" paginator="true" id="la"
+                    paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                    rowsPerPageTemplate="6,12,16">
+
+            <f:facet name="header">
+               Nos Laboratoires
+            </f:facet>
+
+            <p:panel header="#{labo.nom}" style="text-align:center">
+                <h:panelGrid columns="1" style="width:100%">
+                    <div class="icon">
+                        <i class="fa fa-flask"></i>
+                    </div>
+
+
+
+
+
+                    <h:commandLink action="#{teamDataGridView.printTeam}" value = "Afficher les equipes">
+                        <f:param name="laboId" value="#{labo.id}"  />
+                    </h:commandLink>
+
+                    <!--<h:outputText value="#{labo.adresse}" />-->
+
+                    <p:commandLink update=":form:laboDetail" oncomplete="PF('laboDialog').show()" title="View Detail">
+                        <h:outputText styleClass="ui-icon ui-icon-search" style="margin:0 auto;" />
+                        <f:setPropertyActionListener value="#{labo}" target="#{dataGridView.selectedLabo}" />
+                    </p:commandLink>
+                </h:panelGrid>
+            </p:panel>
+
+
+        </p:dataGrid>
+
+        <p:dialog header="Labo Info" widgetVar="laboDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+            <p:outputPanel id="laboDetail" style="text-align:center;">
+                <p:panelGrid  columns="2" rendered="#{not empty dataGridView.selectedLabo}" columnClasses="label,value">
+                    <f:facet name="header">
+                        <div class="icon">
+                            <i class="fa fa-flask"></i>
+                        </div>
+                    </f:facet>
+
+                    <h:outputText value="Nom:" />
+                    <h:outputText value="#{dataGridView.selectedLabo.nom}" />
+
+                    <h:outputText value="Adresse:" />
+                    <h:outputText value="#{dataGridView.selectedLabo.adresse}" />
+
+                    <h:outputText value="Description:" />
+                    <h:outputText value="#{dataGridView.selectedLabo.description}"/>
+
+                    <h:outputText value="Chef de labo:" />
+                    <h:outputText value="#{dataGridView.selectedLabo.administrateurLabo.nom}" />
+                </p:panelGrid>
+            </p:outputPanel>
+        </p:dialog>
+    </h:form>
+
+</h:body>
+<ui:include src="footer.xhtml"></ui:include>
+</html>

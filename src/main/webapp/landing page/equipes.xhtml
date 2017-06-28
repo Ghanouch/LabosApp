@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>personnels</title>
+</h:head>
+
+<ui:include src="head.xhtml"></ui:include>
+
+<h:body>
+
+    <h:form id="form">
+        <p:dataGrid var="team" value="#{teamDataGridView.teams}" columns="3" layout="grid"
+                    rows="12" paginator="true" id="la"
+                    paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                    rowsPerPageTemplate="6,12,16">
+
+            <f:facet name="header">
+                Nos Equipes
+            </f:facet>
+
+            <!--<h:link action="#{teamDataGridView.membre}" value="equipes">
+                <f:param name="selectedteam" value="#{teamDataGridView.selectedteam}"></f:param>-->
+
+
+                <p:panel header="#{team.nom}" style="text-align:center">
+                    <h:panelGrid columns="1" style="width:100%">
+                        <div class="icon">
+                            <i class="fa fa-flask"></i>
+                        </div>
+
+                        <h:outputText value="#{team.description}" />
+
+                        <p:commandLink update=":form:carDetail" oncomplete="PF('carDialog').show()" title="View Detail">
+                            <h:outputText styleClass="ui-icon ui-icon-search" style="margin:0 auto;" />
+                            <f:setPropertyActionListener value="#{team}" target="#{teamDataGridView.selectedTeam}" />
+                        </p:commandLink>
+                    </h:panelGrid>
+                </p:panel>
+
+            <!--</h:link>-->
+
+
+
+        </p:dataGrid>
+
+        <p:dialog header="team Info" widgetVar="teamDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+            <p:outputPanel id="teamDetail" style="text-align:center;">
+                <p:panelGrid  columns="2" rendered="#{not empty teamDataGridView.selectedTeam}" columnClasses="label,value">
+                    <f:facet name="header">
+                        <div class="icon">
+                            <i class="fa fa-flask"></i>
+                        </div>
+                    </f:facet>
+
+                    <h:outputText value="Nom:" />
+                    <h:outputText value="#{teamDataGridView.selectedTeam.nom}" />
+
+                    <h:outputText value="Description:" />
+                    <h:outputText value="#{teamDataGridView.selectedTeam.description}"/>
+
+                    <h:outputText value="Chef de team:" />
+                    <h:outputText value="#{teamDataGridView.selectedTeam.chefEquipe.nom}" />
+                </p:panelGrid>
+            </p:outputPanel>
+        </p:dialog>
+    </h:form>
+
+</h:body>
+<ui:include src="footer.xhtml"></ui:include>
+</html>

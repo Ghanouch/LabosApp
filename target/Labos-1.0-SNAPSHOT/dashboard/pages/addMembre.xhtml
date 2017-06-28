@@ -10,7 +10,7 @@
     <ui:include src="head.xhtml"></ui:include>
 
     <h:head>
-        <title>Ajouter un labos</title>
+        <title>Ajouter un Utilisateur</title>
     </h:head>
     <h:body>
         <div class="wrapper">
@@ -81,91 +81,83 @@
                 <!-- ./col -->
             </div>
                     <!-- /.row -->
-                    <div class="bg-black"><center><h2>Ajouter un Membre</h2></center></div>
+                    <div class="bg-black"><center><h2>Ajouter un Utilisateur</h2></center></div>
                     <div class="bg-gray-light">
                     <section class="content">
                         <h:form class="form-horizontal">
                             <div class="form-group">
                                 <h:outputLabel class="control-label col-sm-1" for="nom">Nom</h:outputLabel>
                                 <div class="col-sm-10">
-                                    <h:inputText type="text" class="form-control" id="nom" a:placeholder="Enter le nom"/>
+                                    <h:inputText type="text" class="form-control" id="nom" value="#{userMB.name}" a:placeholder="Enter le nom"/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <h:outputLabel class="control-label col-sm-1" for="prenom">Prenom</h:outputLabel>
                                 <div class="col-sm-10">
-                                    <h:inputText type="text" class="form-control" id="prenom" a:placeholder="Enter le prenom"/>
+                                    <h:inputText type="text" class="form-control" value="#{userMB.prenom}" id="prenom" a:placeholder="Enter le prenom"/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <h:outputLabel class="control-label col-sm-1" for="login">Login</h:outputLabel>
                                 <div class="col-sm-10">
-                                    <h:inputText type="text" class="form-control" id="login" a:placeholder="Enter le le login"/>
+                                    <h:inputText type="text" class="form-control" value="#{userMB.login}" id="login" a:placeholder="Enter le le login"/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <h:outputLabel class="control-label col-sm-1" for="password">Password</h:outputLabel>
                                 <div class="col-sm-10">
-                                    <h:inputText type="text" class="form-control" id="password" a:placeholder="Enter la mot de passe"/>
+                                    <h:inputText type="text" class="form-control" value="#{userMB.passwd}" id="password" a:placeholder="Enter la mot de passe"/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <h:outputLabel class="control-label col-sm-1" for="ville">Ville</h:outputLabel>
                                 <div class="col-sm-10">
-                                    <h:inputText type="text" class="form-control" id="ville" a:placeholder="Enter la ville"/>
+                                    <h:inputText type="text" class="form-control" value="#{userMB.ville}" id="ville" a:placeholder="Enter la ville"/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <h:outputLabel class="control-label col-sm-1" for="pays">Pays</h:outputLabel>
                                 <div class="col-sm-10">
-                                    <h:inputText type="text" class="form-control" id="pays" a:placeholder="Enter le pays"/>
+                                    <h:inputText type="text" class="form-control" value="#{userMB.pays}" id="pays" a:placeholder="Enter le pays"/>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <h:outputLabel class="control-label col-sm-1" for="email">e-mail</h:outputLabel>
+                                <h:outputLabel class="control-label col-sm-1" >e-mail</h:outputLabel>
                                 <div class="col-sm-10">
-                                    <h:inputText type="text" class="form-control" id="email" a:placeholder="Enter l'email"/>
+                                    <h:inputText type="text" class="form-control" value="#{userMB.mail}" id="email" a:placeholder="Enter l'email"/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <h:outputLabel class="control-label col-sm-1" for="tel">Telephone</h:outputLabel>
                                 <div class="col-sm-10">
-                                    <h:inputText type="text" class="form-control" id="tel" a:placeholder="Enter la telephone"/>
+                                    <h:inputText type="text" class="form-control" value="#{userMB.tel}" id="tel" a:placeholder="Enter la telephone"/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <h:outputLabel class="control-label col-sm-1" for="titre">Titre</h:outputLabel>
                                 <div class="col-sm-10">
-                                    <h:inputText type="text" class="form-control" id="titre" a:placeholder="Enter la titre"/>
+                                    <h:inputText type="text" class="form-control" value="#{userMB.titre}" id="titre" a:placeholder="Enter la titre"/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <h:outputLabel class="control-label col-sm-1" for="resume">Resumé</h:outputLabel>
                                 <div class="col-sm-10">
-                                    <h:inputTextarea type="text" class="form-control" id="resume" a:placeholder="Ecriver un resumé"/>
+                                    <h:inputTextarea type="text" class="form-control" value="#{userMB.resume}" id="resume" a:placeholder="Ecriver un resumé"/>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <h:outputLabel class="control-label col-sm-1" for="photo">Photo</h:outputLabel>
+                                <h:outputLabel class="control-label col-sm-1">Responsabilité</h:outputLabel>
                                 <div class="col-sm-10">
-                                    <h:inputFile  id="photo" />
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <h:outputLabel class="control-label col-sm-1" for="team">Equipe</h:outputLabel>
-                                <div class="col-sm-10">
-                                    <h:selectOneMenu value = "" id="team">
-                                        <f:selectItem itemValue = "1" itemLabel = "Item 1" />
-                                        <f:selectItem itemValue = "2" itemLabel = "Item 2" />
-                                        <f:selectItem itemValue = "3" itemLabel = "Item 3" />
-                                        <f:selectItem itemValue = "4" itemLabel = "Item 4" />
-                                        <f:selectItem itemValue = "5" itemLabel = "Item 5" />
+                                    <h:selectOneMenu value="#{userMB.typeUser}">
+                                        <f:selectItem itemValue = "1" itemLabel = "Responsable d'Equipe" />
+                                        <f:selectItem itemValue = "2" itemLabel = "Responsable d'un Laboratoire" />
+                                        <f:selectItem itemValue = "3" itemLabel = "Membre Normal" />
                                     </h:selectOneMenu>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-offset-5 col-sm-12">
-                                    <h:commandButton value="Submit" class="btn btn-default"></h:commandButton>
+                                    <h:commandButton value="Submit" action="#{userMB.AddUser}" class="btn btn-default"></h:commandButton>
                                 </div>
                             </div>
                         </h:form>
